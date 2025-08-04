@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
+import { Providers } from "./Provider";
+import { Toaster } from "@/components/ui/sonner";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -22,12 +24,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const isProd = process.env.NODE_ENV === "production";
   return (
-    <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Providers>
+          <div className="">
+            <main>{children}</main>
+          </div>
+          <Toaster richColors />
+        </Providers>
       </body>
     </html>
   );
