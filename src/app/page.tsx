@@ -1,10 +1,10 @@
-import SignupPage from "@/feature/page/page";
+import AuthPage from "@/feature/page/page";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <SignupPage />
+      <AuthPage />
     </div>
   );
 };

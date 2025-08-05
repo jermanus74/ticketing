@@ -7,18 +7,23 @@ import { useSignupMutation } from "../hooks/use-signUp";
 type Props = {
   onSubmit: (data: SignupInput) => void;
   isLoading: boolean;
+  resetOnSuccess?: (reset: () => void) => void;
 };
 
-export const SignupForm = ({ onSubmit, isLoading }: Props) => {
+export const SignupForm = ({ onSubmit, isLoading, resetOnSuccess }: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<SignupInput>({
     resolver: zodResolver(SignupSchema),
   });
 
   const signupMutation = useSignupMutation();
+  if (resetOnSuccess) {
+    resetOnSuccess(reset);
+  }
 
   return (
     <form
