@@ -1,11 +1,10 @@
-"use client";
-import AuthPage from "@/feature/page/page";
+import UserList from "@/feature/page/UserList";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <AuthPage />
+      <UserList />
     </div>
   );
 };

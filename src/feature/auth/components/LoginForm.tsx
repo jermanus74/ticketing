@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { LoginInput, LoginSchema } from "../schemas/SignUpSchema";
 import { useLoginMutation } from "../hooks/use-login";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const {
@@ -18,15 +19,18 @@ export default function LoginForm() {
   });
 
   const loginMutation = useLoginMutation();
+  const router = useRouter();
 
   const onSubmit = (data: LoginInput) => {
     loginMutation.mutate(data, {
       onSuccess: (res: { token: string }) => {
         toast.success("Login successful");
-
+        router.push("/dashboard"); // Redirect to dashboard or home page
+        // Optionally store the token in localStorage or context
+        // This is just an example, adjust according to your auth flow
+        localStorage.setItem("token", res.token);
         console.log("Token:", res.token); // Store token in localStorage if needed
         reset();
-        localStorage.setItem("token", res.token);
       },
       onError: (err: Error) => {
         toast.error(err.message || "Login failed");

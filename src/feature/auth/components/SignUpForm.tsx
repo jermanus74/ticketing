@@ -28,7 +28,7 @@ export const SignupForm = ({ onSubmit, isLoading, resetOnSuccess }: Props) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="block w-full max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg space-y-6"
+      className="block w-full max-w-md mx-auto  p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg space-y-6"
     >
       <div className="text-center">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">

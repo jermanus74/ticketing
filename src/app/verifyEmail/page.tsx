@@ -1,11 +1,10 @@
-"use client";
-import AuthPage from "@/feature/page/page";
+import VerifyEmailMessage from "@/feature/auth/page/verify-email-message";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <AuthPage />
+      <VerifyEmailMessage />
     </div>
   );
 };
